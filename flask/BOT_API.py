@@ -63,7 +63,7 @@ def send_first_message():
 
 # Define a route to handle incoming requests
 @chatbot_api_v1.route("/chat", methods=["POST"])
-def chatgpt():
+def chat():
     phone_number = request.form["From"].replace("whatsapp:", "").strip()
     message_received = request.form["Body"].strip()
 

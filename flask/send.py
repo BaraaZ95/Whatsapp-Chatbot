@@ -18,8 +18,6 @@ uri = os.environ.get("MONGO_DB_URI")
 
 async def send_post_request(session, phone_number, message_body):
     url = " https://9eb0-92-98-156-59.ngrok-free.app/send_first_message"
-    # Simulate a previous conversation and save the message sent to MongoDB
-    # save_message(phone_number=phone_number, message_text="Hi, I am a real estate agent, what do you need?", AI_response=True)
     save_message(phone_number=phone_number, message_text=message_body, AI_response=True)
 
     data = {

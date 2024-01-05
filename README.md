@@ -1,2 +1,2 @@
 # Whatsapp-Chatbot
-Whatsapp Chatbot using LangChain, Flask and MongoDB
+Whatsapp Chatbot using LangChain, OpenAI Flask and MongoDB

@@ -23,7 +23,8 @@ class LanguageModelHandler:
     def __init__(self, phone_number):
         self.phone_number = phone_number
         self.llm = self.load_llm()
-        self.house_info = "An apartment in Dubai. My preferred specifications are as follows: 250 square feet, 2 bedrooms, and 2 bathrooms"
+        house_info = "An apartment in dubai"
+        self.house_info = house_info
         self.conversation = self.setup_conversation()
 
     def load_llm(self):
@@ -37,7 +38,7 @@ class LanguageModelHandler:
         prompt = ChatPromptTemplate(
             messages=[
                 SystemMessagePromptTemplate.from_template(
-                    f"Sound more human and friendly. You are roleplaying as  an expat looking for an apartment. You are chatting with a real estate agent. See if the apartment is available or not and try to see if the price is negotiable and negotiate with him"
+                    f"Sound more human and friendly. You are roleplaying as  an expat looking for {self.house_info}. You are chatting with a real estate agent. See if the apartment is available or not and try to see if the price is negotiable and negotiate with him"
                 ),
                 MessagesPlaceholder(variable_name="chat_history"),
                 HumanMessagePromptTemplate.from_template("{input}"),
@@ -53,7 +54,7 @@ class LanguageModelHandler:
         return LLMChain(llm=self.llm, prompt=prompt, verbose=True, memory=memory)
 
     @retry(
-        stop_max_attempt_number=3,  # Number of maximum attempts
+        stop_max_attempt_number=3,
         wait_exponential_multiplier=1000,  # Wait 1000ms, 2000ms, 4000ms, ... between attempts
         wait_exponential_max=10000,  # Maximum wait time is 10 seconds
         retry_on_exception=lambda x: isinstance(x, Exception),
@@ -74,8 +75,9 @@ class LanguageModelHandler:
             response_dict = json.loads(response)
             inference_dict = dict(zip(response_dict["labels"], response_dict["scores"]))
             score_thresh = 0.75
-            if (inference_dict["negotiable"] > inference_dict["non-negotiable"]) & (
-                inference_dict["negotiable"] > score_thresh
+            if (
+                (inference_dict["negotiable"] > inference_dict["non-negotiable"])
+                & (inference_dict["negotiable"] > score_thresh)
             ):  # 0.75 is an appropriate threshold for determining whether the apartment is negotiable or not
                 # print("negotiable")
                 return True

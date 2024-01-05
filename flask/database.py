@@ -77,8 +77,8 @@ def save_message(
     if db_connection is None:
         from flask import g
 
+        # Used to create an in-memory fake db for testing
         db_connection = getattr(g, "_database", None)
-
         if db_connection is None:
             raise RuntimeError("No MongoDB connection found.")
 
