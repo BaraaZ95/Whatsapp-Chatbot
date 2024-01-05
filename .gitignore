@@ -129,7 +129,10 @@ env.bak/
 venv.bak/
 secrets
 .history
-
+secrets/
+/secrets
+/secrets/
+run.py
 # Spyder project settings
 .spyderproject
 .spyproject
