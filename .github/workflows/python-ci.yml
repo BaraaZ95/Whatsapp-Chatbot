@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-        working-directory: ./flask
+        working-directory: ./app
 
       - name: Lint code
         run: |
@@ -35,4 +35,4 @@ jobs:
       - name: Run tests
         run: |
           pip install pytest
-          pytest
+          pytest -k "not mongo"

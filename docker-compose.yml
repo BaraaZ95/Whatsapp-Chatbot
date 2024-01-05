@@ -14,15 +14,14 @@ services:
 
   backend:
     build:
-      context: flask
+      context: app
       target: builder
-    # flask requires SIGINT to stop gracefully
-    # (default stop signal from Compose is SIGTERM)
+
     stop_signal: SIGINT
     environment:
       - FLASK_SERVER_PORT=5000
     volumes:
-      - ./flask:/src
+      - ./app:/src
     depends_on:
       -  mongo  
 

@@ -1,11 +1,16 @@
 import sys
 from mongomock import MongoClient
 import pytest
-from flask_pymongo import PyMongo
 from datetime import datetime
 from flask import g
+from flask_pymongo import PyMongo
+import os
 
-sys.path.insert(0, "/home/baraa/Projects/realestate/ChatGPT_Whatsapp_Bot/")
+current_dir = os.getcwd()
+flask_path = os.path.join(current_dir, "app")
+print("Path: ", flask_path)
+sys.path.insert(0, flask_path)
+
 from factory import create_app  # noqa: E402
 from database import save_message, get_message_history  # noqa: E402
 
@@ -26,9 +31,6 @@ def client(app):
 
 @pytest.fixture
 def mock_db():
-    # This fixture creates a mock MongoDB client for testing
-    from mongomock import MongoClient
-
     return MongoClient().db
 
 

@@ -1,7 +1,11 @@
 import sys
 import pytest
+import os
 
-sys.path.insert(0, "/home/baraa/Projects/realestate/ChatGPT_Whatsapp_Bot/")
+current_dir = os.getcwd()
+flask_path = os.path.join(current_dir, "app")
+print("Path: ", flask_path)
+sys.path.insert(0, flask_path)
 from factory import create_app  # noqa: E402
 
 
@@ -29,4 +33,4 @@ def test_your_function(client):
 def test_index_html_contains_hello_world(client):
     response = client.get("/", follow_redirects=True)
     assert response.status_code == 200
-    assert b"Hello, World!" in response.data
+    assert b"Baraa" in response.data
