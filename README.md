@@ -54,7 +54,17 @@ To run the WhatsApp chatbot, follow these steps:
 
 2. Access the chatbot on WhatsApp.
 
-3. Interact with the chatbot and negotiate with real estate agents.
+3. Test locally with  ```bash  curl localhost:/80 ```
+   
+4. Expose to ngrok by ```bash ngrok http 80 ```
+   
+5. Setup [Twilio API](https://console.twilio.com/)
+
+6. Use send.py to send the messages from the db of real estate agents 
+
+7. The replies will be responded by the chatbot
+
+   
 
 ## License
 
