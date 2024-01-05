@@ -1,4 +1,4 @@
-# Project Title
+# Whatsapp-Chatbot
 
 WhatsApp Chatbot for Real Estate Negotiations
 
@@ -33,7 +33,7 @@ Before running the chatbot, ensure you have the following installed:
 2. Navigate to the project directory:
 
     ```bash
-    cd Your-Repository
+    cd Whatsapp-Chatbot
     ```
 
 3. Build the Docker containers:
