@@ -19,8 +19,7 @@ jobs:
           python-version: '3.8'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
-
+        run: pip install -r  flask/requirements.txt
       - name: Lint code
         run: |
           pip install flake8
