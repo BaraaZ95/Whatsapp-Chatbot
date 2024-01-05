@@ -55,7 +55,8 @@ class LanguageModelHandler:
 
     @retry(
         stop_max_attempt_number=3,
-        wait_exponential_multiplier=1000,  # Wait 1000ms, 2000ms, 4000ms, ... between attempts
+        wait_exponential_multiplier=1000,
+        # Wait 1000ms, 2000ms, 4000ms, ... between attempts
         wait_exponential_max=10000,  # Maximum wait time is 10 seconds
         retry_on_exception=lambda x: isinstance(x, Exception),
     )
@@ -75,9 +76,8 @@ class LanguageModelHandler:
             response_dict = json.loads(response)
             inference_dict = dict(zip(response_dict["labels"], response_dict["scores"]))
             score_thresh = 0.75
-            if (
-                (inference_dict["negotiable"] > inference_dict["non-negotiable"])
-                & (inference_dict["negotiable"] > score_thresh)
+            if (inference_dict["negotiable"] > inference_dict["non-negotiable"]) & (
+                inference_dict["negotiable"] > score_thresh
             ):  # 0.75 is an appropriate threshold for determining whether the apartment is negotiable or not
                 # print("negotiable")
                 return True

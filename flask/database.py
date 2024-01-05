@@ -107,7 +107,8 @@ def get_message_history(phone_number) -> List:
     messages_db = db["Messages"]  # type: ignore
     cleaned_messages = []
     # user_details = users_db.find_one({"phone_number":phone_number},  {"username": 1, "user_id": 0, "_id":0})
-    # username = user_details["username"] # Can user username instead of Human tag in the responses
+    # username = user_details["username"] # Can user username instead of Human
+    # tag in the responses
     messages = messages_db.find(
         {"phone_number": phone_number},
         {"message_text": 1, "AI_response": 1, "_id": 0},
