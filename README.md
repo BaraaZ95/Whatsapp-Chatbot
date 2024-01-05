@@ -54,9 +54,9 @@ To run the WhatsApp chatbot, follow these steps:
 
 2. Access the chatbot on WhatsApp.
 
-3. Test locally with  ```bash  curl localhost:/80 ```
+3. Test locally with  ```curl localhost:/80```
    
-4. Expose to ngrok by ```bash ngrok http 80 ```
+4. Expose to ngrok by ```ngrok http 80```
    
 5. Setup [Twilio API](https://console.twilio.com/)
 
