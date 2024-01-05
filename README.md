@@ -27,7 +27,7 @@ Before running the chatbot, ensure you have the following installed:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/BaraaZ95/Your-Repository.git
+    git clone https://github.com/BaraaZ95/Whatsapp-Chatbot.git
     ```
 
 2. Navigate to the project directory:
