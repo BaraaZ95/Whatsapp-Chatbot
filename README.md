@@ -6,12 +6,13 @@ WhatsApp Chatbot for Real Estate Negotiations
 
 This project is a WhatsApp chatbot designed to negotiate with real estate agents in Dubai. It leverages scraped data from Bayut.com to provide information. The scraper code is available [here](https://github.com/BaraaZ95/Bayut-scraper). The backend is built using Flask, with ngrok used for port exposure. Twilio's WhatsApp API is employed for sending and receiving messages, and LangChain with OpenAI's ChatGPT is used for communication with real estate agents.
 
+Run the scraper, upload the data to mongodb atlas, then you have access to the agents' details.
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
 - [Setup](#setup)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Prerequisites
